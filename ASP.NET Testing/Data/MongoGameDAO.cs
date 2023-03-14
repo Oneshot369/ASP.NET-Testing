@@ -17,5 +17,9 @@ namespace ASP.NET_Testing.Data
         {
             await _games.InsertOneAsync(song);
         }
+        public List<Game> GetAll()
+        {
+            return _games.Find(_ => true).ToList();
+        }
     }
 }

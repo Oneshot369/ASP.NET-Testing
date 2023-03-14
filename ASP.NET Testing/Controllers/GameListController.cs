@@ -9,9 +9,10 @@ namespace ASP.NET_Testing.Controllers
     public class GameListController : Controller
     {
         IGameData GameDAO = DataSource.getDataSource();
+        MongoGameDAO MongoDAO = new MongoGameDAO();
         public IActionResult Index()
         {
-            return View(GameDAO.getAllGames());
+            return View(MongoDAO.GetAll());
         }
     }
 }
