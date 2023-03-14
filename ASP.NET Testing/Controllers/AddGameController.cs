@@ -15,7 +15,7 @@ namespace ASP.NET_Testing.Controllers
 
         public IActionResult ShowGame(Game gameToAdd)
         {
-            
+            GameDAO.addGame(gameToAdd);
             return View(gameToAdd);
         }
     }
