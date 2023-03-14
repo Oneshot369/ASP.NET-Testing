@@ -1,17 +1,22 @@
 ﻿using ASP.NET_Testing.Data;
-using ASP.NET_Testing.Depend;
 using ASP.NET_Testing.Models;
+using ASP.NET_Testing.Depend;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections;
 
 namespace ASP.NET_Testing.Controllers
 {
-    public class GameListController : Controller
+    public class AddGameController : Controller
     {
         IGameData GameDAO = DataSource.getDataSource();
         public IActionResult Index()
         {
-            return View(GameDAO.getAllGames());
+            return View();
+        }
+
+        public IActionResult ShowGame(Game gameToAdd)
+        {
+            
+            return View(gameToAdd);
         }
     }
 }
