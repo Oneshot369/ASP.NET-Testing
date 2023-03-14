@@ -6,7 +6,7 @@ namespace ASP.NET_Testing.Depend
     {
         public static IGameData getDataSource()
         {
-            return new GameMockData();
+            return new MongoGameDAO();
         }
     }
 }

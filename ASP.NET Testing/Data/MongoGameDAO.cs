@@ -3,7 +3,7 @@ using MongoDB.Driver;
 
 namespace ASP.NET_Testing.Data
 {
-    public class MongoGameDAO
+    public class MongoGameDAO : IGameData
     {
         private readonly IMongoCollection<Game> _games;
         public MongoGameDAO()
@@ -13,13 +13,34 @@ namespace ASP.NET_Testing.Data
             _games = database.GetCollection<Game>("games");
         }
 
-        public async Task Create(Game song)
+        public Game addGame(Game gameToAdd)
         {
-            await _games.InsertOneAsync(song);
+            _games.InsertOne(gameToAdd);
+            return gameToAdd;
         }
-        public List<Game> GetAll()
+
+        //public async Task Create(Game song)
+        //{
+        //    await _games.InsertOneAsync(song);
+        //}
+        //public List<Game> GetAll()
+        //{
+        //    return _games.Find(_ => true).ToList();
+        //}
+
+        public List<Game> getAllGames()
         {
             return _games.Find(_ => true).ToList();
+        }
+
+        public int removeGame(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Game> updateGame(Game gameToUpdate)
+        {
+            throw new NotImplementedException();
         }
     }
 }
