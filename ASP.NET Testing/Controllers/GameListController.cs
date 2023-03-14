@@ -8,7 +8,7 @@ namespace ASP.NET_Testing.Controllers
     {
         public IActionResult Index()
         {
-            ArrayList games = new ArrayList();
+            List<Game> games = new List<Game>();
             games.Add(new Game("001", "Leage of Ledgens", "MOBA", 0.0f, 'E'));
             games.Add(new Game("002", "Destiny", "FPS, RPG, MMO", 0.0f, 'T'));
             games.Add(new Game("003", "ARK", "Survial", 60.0f, 'M'));
