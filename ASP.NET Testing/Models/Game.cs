@@ -1,9 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson;
+using System.ComponentModel.DataAnnotations;
 
 namespace ASP.NET_Testing.Models
 {
     public class Game
     {
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
         [Display(Name = "Id #")]
         public string Id { get; set; }
         [Display(Name = "Game")]

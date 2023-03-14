@@ -7,7 +7,7 @@ namespace ASP.NET_Testing.Controllers
 {
     public class AddGameController : Controller
     {
-        IGameData GameDAO = DataSource.getDataSource();
+        MongoGameDAO GameDAO = new MongoGameDAO();
         public IActionResult Index()
         {
             return View();
@@ -15,7 +15,7 @@ namespace ASP.NET_Testing.Controllers
 
         public IActionResult ShowGame(Game gameToAdd)
         {
-            
+            GameDAO.Create(gameToAdd);
             return View(gameToAdd);
         }
     }
